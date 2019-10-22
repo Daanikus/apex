@@ -216,6 +216,7 @@ func (f *Function) tryConfig(path string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
+	defer file.Close()
 
 	if err := json.NewDecoder(file).Decode(&f.Config); err != nil {
 		return false, err

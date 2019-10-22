@@ -109,6 +109,7 @@ func (p *Project) Open() error {
 	if err != nil {
 		return err
 	}
+	defer f.Close()
 
 	if err := json.NewDecoder(f).Decode(&p.Config); err != nil {
 		return err
